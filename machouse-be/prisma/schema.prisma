@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model task {
+  Id      Int      @id @default(autoincrement())
+  User_Id Int      @map("User-Id")
+  Name    String
+  Date    DateTime @db.Date
+  user    user     @relation(fields: [User_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model user {
+  Id          Int                  @id @default(autoincrement())
+  Name        String               @db.VarChar(64)
+  Email       String               @db.VarChar(64)
+  Color       Unsupported("char")?
+  Online      Boolean
+  Last_online DateTime             @map("Last-online") @db.Timestamp(6)
+  task        task[]
+}

@@ -1,9 +1,11 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-const secondary = require('./secondary.js');
+// require "import" your exported route using the same syntax as the line below
+let user = require('./user');
 
-// secondary example route
-router.use('/secondary', secondary);
+// Add your route here using the same sytax as seen on the line below
+router.use('/user', user);
 
-module.exports = router;
+// DO NOT CHANGE
+export default router;

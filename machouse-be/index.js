@@ -1,16 +1,20 @@
 /*-----------------------------------------------------------API Dependencies------------------------------------------------------------------*/
-const express = require('express');
+import express from 'express';
 const bodyParser = require('body-parser');
 const app = express();
+var cors = require('cors');
 
 /*--------------------------------------------------------------Port Setup---------------------------------------------------------------------*/
 const port = process.env.PORT || 3001;
 
 /*-----------------------------------------------------------Routes File---------------------------------------------------------------------- */
 
-const routes = require('./src/routes/routes.js');
+import routes from './src/routes/routes.js';
 
-//BodyParser Setup
+// Cross Origin Setup
+app.use(cors());
+
+// BodyParser Setup
 app.use(bodyParser.json());
 app.use(
 	bodyParser.urlencoded({
@@ -18,7 +22,11 @@ app.use(
 	})
 );
 
+// Routes setup
 app.use('/api', routes);
+
+let http = require('http');
+let path = require('path');
 
 // Root Route - Returns a string 'OK'
 app.get('/', (req, res) => {

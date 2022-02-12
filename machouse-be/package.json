@@ -4,15 +4,23 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js",
+		"start": "nodemon --exec babel-node index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "GDSC McMaster CC",
 	"license": "MIT",
 	"dependencies": {
-		"express": "^4.17.2"
+		"@prisma/client": "^3.9.2",
+		"cors": "^2.8.5",
+		"express": "^4.17.2",
+		"moment": "^2.29.1",
+		"pg": "^8.7.3",
+		"prisma": "^3.9.1"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.17.2",
+		"@babel/node": "^7.16.8",
+		"@babel/preset-env": "^7.16.11",
 		"nodemon": "^2.0.15"
 	}
 }
