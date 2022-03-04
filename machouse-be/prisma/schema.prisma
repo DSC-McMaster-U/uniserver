@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -23,4 +26,12 @@ model user {
   Online      Boolean
   Last_online DateTime             @map("Last-online") @db.Timestamp(6)
   task        task[]
+}
+
+model event {
+  Id          Int                  @id @default(autoincrement())
+  Time        DateTime             @db.Timestamp(6)
+  Location    String               @db.VarChar(64)
+  Color       String               @db.VarChar(64)
+  Name        String               @db.VarChar(64)
 }
