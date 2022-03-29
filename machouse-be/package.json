@@ -10,12 +10,12 @@
 	"author": "GDSC McMaster CC",
 	"license": "MIT",
 	"dependencies": {
-		"@prisma/client": "^3.9.2",
+		"@prisma/client": "^3.11.1",
 		"cors": "^2.8.5",
 		"express": "^4.17.2",
 		"moment": "^2.29.1",
 		"pg": "^8.7.3",
-		"prisma": "^3.9.1"
+		"prisma": "^3.11.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.2",
