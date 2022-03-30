@@ -9,28 +9,28 @@ datasource db {
 
 model Announce {
   Id          Int       @id @default(autoincrement())
-  User_Id     Int?      @map("User-Id")
+  User_Id     Int       @map("User-Id")
   Contents    String?
   Date_Posted DateTime? @map("Date-Posted") @db.Timestamp(6)
   Pinned      Boolean   @default(false)
-  User        User?     @relation(fields: [User_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "announcement_User-Id_fkey")
+  user        user      @relation(fields: [User_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model Task {
-  Id      Int      @id(map: "task_pkey") @default(autoincrement())
+model task {
+  Id      Int      @id @default(autoincrement())
   User_Id Int      @map("User-Id")
   Name    String
   Date    DateTime @db.Date
-  User    User     @relation(fields: [User_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction, map: "task_User-Id_fkey")
+  user    user     @relation(fields: [User_Id], references: [Id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model User {
-  Id          Int                  @id(map: "user_pkey") @default(autoincrement())
+model user {
+  Id          Int                  @id @default(autoincrement())
   Name        String               @db.VarChar(64)
   Email       String               @db.VarChar(64)
   Color       Unsupported("char")?
   Online      Boolean
   Last_online DateTime             @map("Last-online") @db.Timestamp(6)
   Announce    Announce[]
-  Task        Task[]
+  task        task[]
 }
