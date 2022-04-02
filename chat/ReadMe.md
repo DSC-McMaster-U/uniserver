@@ -27,7 +27,6 @@
 2. Push your final changes to the forked repository. If you havent forked the repository, you will not be able to commit code directly.
 3. Open a pull request as outlined in the artical above
 4. Make a formal submission via the following google form: https://forms.gle/1Cw8twtg8hd8kAdVA
-5. .
 
 ---
 
