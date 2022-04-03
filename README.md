@@ -6,7 +6,7 @@ This is a chatting app created using ReactJs, axios, Socket.io, express and mong
 This app was created as a coding challenge.
 
 ## File Structure
-[a link](https://github.com/DShah-git/uniserver/tree/main/uniserver-fe) is the front-end react app and follow the usual react file structure.
+[uniserver-be](https://github.com/DShah-git/uniserver/tree/main/uniserver-fe) is the front-end react app and follow the usual react file structure.
 
 ###Instruction for running
 
@@ -14,7 +14,7 @@ This app was created as a coding challenge.
 2. run `npm start` to start the application in **PORT 3000**
 
 
-[a link](https://github.com/DShah-git/uniserver/tree/main/uniserver-be) is the backend express app and follows the usual express/server file structure.
+[uniserver-fe](https://github.com/DShah-git/uniserver/tree/main/uniserver-be) is the backend express app and follows the usual express/server file structure.
 
 ###Instruction for running
 
@@ -23,3 +23,6 @@ This app was created as a coding challenge.
 3. run `npm start` to start the application in **PORT 5000**
 
 
+Here are some screen shots from frontend
+![1](https://user-images.githubusercontent.com/88405970/161436614-f84a473a-7ec4-4348-8b94-dd3c9179bf9d.PNG)
+![2](https://user-images.githubusercontent.com/88405970/161436633-8915b20c-0196-424a-a0bb-6a9350e26fa3.PNG)
