@@ -81,8 +81,11 @@ function Chat(props) {
               <h3>Welcome to the Chat Room</h3>
               <h4>Follow this rules :</h4>
               <ol className='rules'>
-                <li>&nbsp;Be nice to everyone.</li>
-                <li>&nbsp;No links No promotion.</li>
+                <li>&nbsp;Be responsible. Use common sense.</li>
+                <li>&nbsp;Be nice.</li>
+                <li>&nbsp;Be respectful and constructive.</li>
+                <li>&nbsp;Be collaborative.</li>
+                <li>&nbsp;No Spam, No NSFW content.</li>
               </ol>           
             </div>
           </div>
