@@ -10,6 +10,7 @@ datasource db {
 model Announce {
   Id          Int       @id @default(autoincrement())
   User_Id     Int       @map("User-Id")
+  Title       String?
   Contents    String?
   Date_Posted DateTime? @map("Date-Posted") @db.Timestamp(6)
   Pinned      Boolean   @default(false)
