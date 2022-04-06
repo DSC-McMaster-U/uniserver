@@ -17,6 +17,7 @@ router.post("/new", async (req, res) => {
     const ann = await prisma.announce.create({
       data: {
         User_Id: req.body.userId,
+        Title: req.body.title,
         Contents: req.body.content,
         Date_Posted: date.format(),
       },
@@ -57,6 +58,7 @@ router.get("/", async (req, res) => {
     const announcements = await prisma.announce.findMany({
       select: {
         Id: true,
+        Title: true,
         Contents: true,
         Date_Posted: true,
         Pinned: true,
@@ -95,6 +97,7 @@ router.put("/:id", async (req, res) => {
         Id: req.body.Id,
       },
       data: {
+        Title: req.body.title,
         Contents: req.body.Contents,
       },
     });
