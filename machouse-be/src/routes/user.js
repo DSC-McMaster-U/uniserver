@@ -1,50 +1,55 @@
-/*-----------------------------------------------------------API Dependencies------------------------------------------------------------------*/
 const express = require('express');
 const router = express.Router();
 
-/*-----------------------------------------------------------Dependency Imports-------------------------------------------------------- */
-import { PrismaClient } from '@prisma/client';
+
+import { PrismaClient } from @prisma/client;
 const prisma = new PrismaClient();
 
 import moment from 'moment';
 
-router.use('/user', router);
+router.use('/api/online', router);
 
-// GET user by id
-router.get('/:id', async (req, res) => {
-	// api/user/USER_ID_NUMBER
-	// function must be async to return promise
-	try {
-		const user = await prisma.user.findUnique({
-			where: {
-				Id: Number(req.params.id),
-			},
-		});
-		res.json(user);
-	} catch (e) {
-		console.log(e);
-	}
-});
+//GET users online
+router.get('/who', async(req, res) => { //api/online/who
+    //Function must be async to return promise
+    try{
+        const status = await prisma.user.findMany({
+            where: {
+                online: true,
+            },
+        })
 
-// POST new user account
-router.post('/add', async (req, res) => {
-	// api/user/add
-	let userData = req.body;
-	let date = moment();
+        res.json(status)
 
-	try {
-		const user = await prisma.user.create({
-			data: {
-				Name: req.body.name,
-				Email: req.body.email,
-				Online: true,
-				Last_online: date.format(),
-			},
-		});
-		res.json(user);
-	} catch (e) {
-		console.log(e);
-	}
-});
+    }catch(e){
+        console.log(e)
+    }
+})
 
-module.exports = router;
+//PUT Online to !Online
+router.put('/change-status/:id', async(req, res) => {
+    try{
+        const changeStatus = await prisma.user.update({
+            where: {
+                status: true
+            },
+            data: {
+                status: false,
+            },
+
+            where: {
+                status: false
+            },
+            data: {
+                status: true,
+            },
+        })
+
+        res.json(changeStatus)
+        
+    }catch(e){
+        console.log(e);
+    }
+})
+
+model.exports = router;
